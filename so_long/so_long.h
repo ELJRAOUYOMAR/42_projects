@@ -6,7 +6,7 @@
 /*   By: oel-jrao <oel-jrao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 03:25:52 by oel-jrao          #+#    #+#             */
-/*   Updated: 2025/03/25 14:54:32 by oel-jrao         ###   ########.fr       */
+/*   Updated: 2025/03/30 22:25:58 by oel-jrao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void		move_w(t_game *game);
 void		move_d(t_game *game);
 void		move_s(t_game *game);
 void		move_a(t_game *game);
-int			exit_game(t_game *game);
+int			exit_game(t_game *game, int exit_type);
 void		free_map(char **map);
 void		finish_game_with_success(t_game *game);
 int			has_valid_solution(t_game *game);

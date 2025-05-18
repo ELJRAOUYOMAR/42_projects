@@ -6,7 +6,7 @@
 /*   By: oel-jrao <oel-jrao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 03:26:04 by oel-jrao          #+#    #+#             */
-/*   Updated: 2025/03/25 14:41:56 by oel-jrao         ###   ########.fr       */
+/*   Updated: 2025/03/31 00:15:39 by oel-jrao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static void	update_player_img(char key, t_game *game)
 {
+	if (!game->mlx || !game->img_player)
+		return ;
 	mlx_destroy_image(game->mlx, game->img_player);
 	if (key == 'w' || key == 'd')
 		game->img_player = mlx_xpm_file_to_image(game->mlx,
@@ -21,6 +23,11 @@ static void	update_player_img(char key, t_game *game)
 	else if (key == 's' || key == 'a')
 		game->img_player = mlx_xpm_file_to_image(game->mlx,
 				"textures/PA.xpm", &game->img_w, &game->img_h);
+	if (!game->img_player)
+	{
+		ft_printf("Error\nFailed to load player texture!\n");
+		exit_game(game, 1);
+	}
 }
 
 void	move_w(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: oel-jrao <oel-jrao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 03:26:00 by oel-jrao          #+#    #+#             */
-/*   Updated: 2025/03/25 15:15:47 by oel-jrao         ###   ########.fr       */
+/*   Updated: 2025/03/30 22:27:31 by oel-jrao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,15 @@ static void	render_exit(t_game *game, int x, int y)
 {
 	if (game->n_colect == 0)
 	{
-		mlx_destroy_image(game->mlx, game->img_exit);
+		if (game->img_exit)
+			mlx_destroy_image(game->mlx, game->img_exit);
 		game->img_exit = mlx_xpm_file_to_image(game->mlx,
 				"textures/E2.xpm", &game->img_w, &game->img_h);
+		if (!game->img_exit)
+		{
+			ft_printf("Error\nFailed to load the exit texture");
+			exit_game(game, 1);
+		}
 	}
 	render_img(game, game->img_exit, x, y);
 }

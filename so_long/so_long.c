@@ -6,7 +6,7 @@
 /*   By: oel-jrao <oel-jrao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 03:25:58 by oel-jrao          #+#    #+#             */
-/*   Updated: 2025/03/25 15:12:48 by oel-jrao         ###   ########.fr       */
+/*   Updated: 2025/03/31 00:33:47 by oel-jrao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 	{
 		game.map = read_map(argv[1]);
 		if (!is_valid_argv(argv[1]))
-			print_err(&game, "Check the file extension!\n");
+			print_err(&game, "Check the file name and extension!\n");
 		else if (!is_valide_map(&game))
 			print_err(&game, "Invalid Map!\n");
 		else
@@ -42,7 +42,7 @@ int	main(int argc, char **argv)
 	else
 	{
 		printf("Error\nInvalid Sytax");
-		exit(1);
+		return (1);
 	}
 	return (0);
 }

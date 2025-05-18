@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   argv_checker.c                                     :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-jrao <oel-jrao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/23 03:29:25 by oel-jrao          #+#    #+#             */
-/*   Updated: 2025/03/31 00:33:40 by oel-jrao         ###   ########.fr       */
+/*   Created: 2024/10/22 23:12:02 by oel-jrao          #+#    #+#             */
+/*   Updated: 2024/11/05 07:26:09 by oel-jrao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	is_valid_argv(char *av)
+int	ft_isdigit(int n)
 {
-	int	i;
-
-	if (!av)
-		return (0);
-	i = 0;
-	while (av[i])
-		i++;
-	if (av[i - 5] == '/')
-		return (0);
-	if (av[i - 1] == 'r' && av[i - 2] == 'e'
-		&& av[i - 3] == 'b' && av[i - 4] == '.')
+	if (n <= 57 && n >= 48)
 		return (1);
 	return (0);
 }

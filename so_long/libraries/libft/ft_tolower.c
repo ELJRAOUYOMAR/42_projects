@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   argv_checker.c                                     :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-jrao <oel-jrao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/23 03:29:25 by oel-jrao          #+#    #+#             */
-/*   Updated: 2025/03/31 00:33:40 by oel-jrao         ###   ########.fr       */
+/*   Created: 2024/10/24 17:35:06 by oel-jrao          #+#    #+#             */
+/*   Updated: 2025/03/25 01:29:22 by oel-jrao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-
-int	is_valid_argv(char *av)
+int	ft_tolower(int c)
 {
-	int	i;
-
-	if (!av)
-		return (0);
-	i = 0;
-	while (av[i])
-		i++;
-	if (av[i - 5] == '/')
-		return (0);
-	if (av[i - 1] == 'r' && av[i - 2] == 'e'
-		&& av[i - 3] == 'b' && av[i - 4] == '.')
-		return (1);
-	return (0);
+	if (c <= 'Z' && c >= 'A')
+		c += 32;
+	return (c);
 }

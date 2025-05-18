@@ -6,7 +6,7 @@
 /*   By: oel-jrao <oel-jrao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 03:25:55 by oel-jrao          #+#    #+#             */
-/*   Updated: 2025/03/25 15:19:22 by oel-jrao         ###   ########.fr       */
+/*   Updated: 2025/03/31 00:57:40 by oel-jrao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	game_events(int keycode, t_game *game)
 static int	key_press(int keycode, t_game *game)
 {
 	if (keycode == KEY_ESC)
-		exit_game(game);
+		exit_game(game, 0);
 	game_events(keycode, game);
 	if (keycode == KEY_W || keycode == KEY_S
 		|| keycode == KEY_D || keycode == KEY_A)
@@ -49,6 +49,6 @@ static int	key_press(int keycode, t_game *game)
 
 void	game_start(t_game *game)
 {
-	mlx_hook(game->win, 2, 1L << 0, key_press, game);
-	mlx_hook(game->win, 17, 0, exit_game, game);
+	mlx_hook(game->win, KEYPRESS, 1L, key_press, game);
+	mlx_hook(game->win, DESTROYNOTIFY, 0, exit_game, game);
 }
